@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CachAI Logs Analysis</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <h1>Logs Analysis</h1>
+        
+        <!-- Visualization -->
+        <div class="mt-4">
+            <img src="{{ plot_path }}" alt="Frequently Accessed Content" class="img-fluid">
+        </div>
+        
+        <!-- Data Table -->
+        <table class="table table-bordered mt-5">
+            <thead>
+                <tr>
+                    <th>Content ID</th>
+                    <th>Content Type</th>
+                    <th>Source</th>
+                    <th>Access Count</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for item in freq_data %}
+                <tr>
+                    <td>{{ item.content_id }}</td>
+                    <td>{{ item.content_type }}</td>
+                    <td>{{ item.source }}</td>
+                    <td>{{ item.access_count }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
